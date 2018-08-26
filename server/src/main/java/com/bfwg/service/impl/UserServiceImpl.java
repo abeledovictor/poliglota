@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bfwg.model.Authority;
 import com.bfwg.model.User;
 import com.bfwg.model.UserRequest;
+import com.bfwg.model.UserRoleName;
 import com.bfwg.repository.UserRepository;
 import com.bfwg.service.AuthorityService;
 import com.bfwg.service.UserService;
@@ -64,7 +65,7 @@ public class UserServiceImpl implements UserService {
     user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
     user.setFirstname(userRequest.getFirstname());
     user.setLastname(userRequest.getLastname());
-    List<Authority> auth = authService.findByname("ROLE_USER");
+    List<Authority> auth = authService.findByname(UserRoleName.ROLE_USER);
     user.setAuthorities(auth);
     this.userRepository.save(user);
     return user;
