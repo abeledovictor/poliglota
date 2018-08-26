@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found';
 import { ChangePasswordComponent } from './change-password';
 import { ForbiddenComponent } from './forbidden';
 import { SignupComponent } from './signup';
+import { ExercisesComponent } from './exercises/exercises.component';
  
 export const routes: Routes = [
   {
@@ -22,6 +23,11 @@ export const routes: Routes = [
     component: SignupComponent,
     canActivate: [GuestGuard],
     pathMatch:'full'
+  },
+  {
+    path: 'exercises',
+    component: ExercisesComponent,
+    pathMatch: 'full',
   },
   {
     path: 'login',
