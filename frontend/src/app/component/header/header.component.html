@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="app-navbar">
   <button mat-button mat-ripple routerLink="/">
-    <img alt="Angular-Spring-Starter" class="app-angular-logo" src="assets/image/angular-white-transparent.svg">
-    <span>Angular-Spring-Starter</span>
+    <img alt="poliglota" class="app-angular-logo" src="assets/image/angular-white-transparent.svg">
+    <span>Poliglota</span>
   </button>
   
 
@@ -13,6 +13,9 @@
       </button>
       <button *ngIf="!hasSignedIn()" routerLink="/login" mat-button mat-ripple>
         <span>Login</span>
+      </button>
+      <button *ngIf="hasSignedIn()" routerLink="/exercises" mat-button mat-ripple>
+        <span>Exercises</span>
       </button>
       <button
         class="greeting-button"
