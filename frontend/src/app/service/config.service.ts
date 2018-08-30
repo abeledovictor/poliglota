@@ -20,6 +20,8 @@ export class ConfigService {
 
   private _users_url = this._user_url + '/all';
 
+  private _ex_url = '/api/word-transformation/all'
+
   private _reset_credentials_url = this._user_url + '/reset-credentials';
 
   private _foo_url = this._api_url + '/foo';
@@ -36,6 +38,10 @@ export class ConfigService {
 
   get whoami_url(): string {
       return this._whoami_url;
+  }
+
+  get ex_url(): string {
+      return this._ex_url;
   }
 
   get users_url(): string {

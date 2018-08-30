@@ -36,7 +36,8 @@ import {
   AuthService,
   UserService,
   FooService,
-  ConfigService
+  ConfigService,
+  ExService,
 } from './service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -91,6 +92,7 @@ export function initUserFactory(userService: UserService) {
     AuthService,
     ApiService,
     UserService,
+    ExService,
     ConfigService,
     MatIconRegistry,
     {

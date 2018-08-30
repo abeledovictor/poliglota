@@ -10,7 +10,7 @@ import { NotFoundComponent } from './not-found';
 import { ChangePasswordComponent } from './change-password';
 import { ForbiddenComponent } from './forbidden';
 import { SignupComponent } from './signup';
-import { ExercisesComponent } from './exercises/exercises.component';
+import { ExercisesComponent } from './exercises';
  
 export const routes: Routes = [
   {
