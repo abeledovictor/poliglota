@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,9 +29,8 @@ public class WordTransformationExercise implements Serializable {
 	  private Long authorId;
 	  
 	  
-	  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	  @JoinTable(name = "wt_task",
-	      joinColumns = @JoinColumn(name = "id"))
+	  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	  @JoinTable(name = "wt_task")
 	  private List<WordTransformation> wordTransformations;
 	  
 	  public Long getId() {
