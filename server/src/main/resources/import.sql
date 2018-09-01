@@ -13,6 +13,5 @@ INSERT INTO user_authority (user_id, authority_id) VALUES (2, 2);
 INSERT INTO user_authority (user_id, authority_id) VALUES (3, 1);
 INSERT INTO user_authority (user_id, authority_id) VALUES (3, 2);
 
-INSERT INTO wt_exercise (id, author_id) VALUES (99, 3)
-
-INSERT INTO wt_task (exercise_id, body, result, word) VALUES (99, 'I love _ in the park', 'running', 'run')
+INSERT INTO wt_exercise (id, author_id) VALUES (1, 3);
+INSERT INTO wt_task (id, body, result, word, WORD_TRANSFORMATIONS_ID) VALUES (1, 'user', 'Fan', 'Jin', 1);
