@@ -30,7 +30,9 @@ public class WordTransformationExercise implements Serializable {
 	  
 	  
 	  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	  @JoinTable(name = "wt_task")
+	  @JoinTable(name = "wt_task",
+		      joinColumns = @JoinColumn(name = "exercise_id", referencedColumnName = "id"),
+		      inverseJoinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"))
 	  private List<WordTransformation> wordTransformations;
 	  
 	  public Long getId() {

@@ -1,13 +1,10 @@
 <div class="content" fxLayout="row" fxLayoutAlign="center none">
-<p>
-  exercises works!
-</p>
 <app-api-card
 fxFlex
 title="Word transformation"
 subTitle="Admin"
 imgUrl="assets/image/foo.png"
-content='This is a demo public endpoint which requires admin authentication.'
+content='This is a demo endpoint that requires admin authentication.'
 apiText="/api/word-transformation/all"
 [responseObj]="fooResponse"
 (apiClick)="makeRequest($event)"
