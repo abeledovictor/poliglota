@@ -22,6 +22,8 @@ export class ConfigService {
 
   private _ex_url = '/api/word-transformation/all'
 
+  private _ex_by_author_url = '/api/word-transformation';
+
   private _reset_credentials_url = this._user_url + '/reset-credentials';
 
   private _foo_url = this._api_url + '/foo';
@@ -42,6 +44,10 @@ export class ConfigService {
 
   get ex_url(): string {
       return this._ex_url;
+  }
+
+  get ex_by_author_url(): string {
+      return this._ex_by_author_url;
   }
 
   get users_url(): string {

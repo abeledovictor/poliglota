@@ -15,4 +15,8 @@ export class ExService {
     return this.apiService.get(this.config.ex_url);
   }
 
+  getByUserId(authorId) {
+    return this.apiService.get(this.config.ex_by_author_url + '/' + authorId);
+  }
+
 }

@@ -8,7 +8,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
-import com.bfwg.model.User;
 import com.bfwg.model.WordTransformationExercise;
 import com.bfwg.repository.WordTransformationExerciseRepository;
 
@@ -28,5 +27,11 @@ public class WordTransformationExerciseService {
 	  public List<WordTransformationExercise> findAll() throws AccessDeniedException {
 	    List<WordTransformationExercise> result = wtRepository.findAll();
 	    return result;
+	  }
+	  
+	  @PreAuthorize("hasRole('USER')")
+	  public List<WordTransformationExercise> findByAuthorId(Long authorId) throws AccessDeniedException {
+		  List<WordTransformationExercise> result = wtRepository.findByAuthorId(authorId);
+		  return result;
 	  }
 }

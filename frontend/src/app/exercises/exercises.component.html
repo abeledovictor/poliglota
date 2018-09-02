@@ -2,6 +2,17 @@
 <app-api-card
 fxFlex
 title="Word transformation"
+subTitle="User"
+imgUrl="assets/image/user.png"
+content='This is a demo endpoint that requires user authentication.'
+apiText="/api/word-transformation/{authorId}"
+[responseObj]="userResponse"
+(apiClick)="makeByIdRequest($event)"
+>
+</app-api-card>
+<app-api-card
+fxFlex
+title="Word transformation"
 subTitle="Admin"
 imgUrl="assets/image/foo.png"
 content='This is a demo endpoint that requires admin authentication.'

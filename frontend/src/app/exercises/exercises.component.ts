@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
   ExService,
+  UserService,
 } from '../service';
 
 @Component({
@@ -11,11 +12,18 @@ import {
 export class ExercisesComponent implements OnInit {
 
   fooResponse = {};
+  userResponse = {};
   constructor(
     private exService: ExService,
+    private userService: UserService,
   ) { }
 
   ngOnInit() {
+  }
+
+  userId() {
+    const user = this.userService.currentUser;
+    return user.id + '';
   }
 
   makeRequest(path) {
@@ -26,6 +34,15 @@ export class ExercisesComponent implements OnInit {
         this.forgeResonseObj(this.fooResponse, err, path);
       });
   }
+
+  makeByIdRequest(path) {
+    this.exService.getByUserId(this.userId())
+    .subscribe(res => {
+      this.forgeResonseObj(this.userResponse, res, '/api/word-transformation/' + this.userId());
+    }, err => {
+      this.forgeResonseObj(this.userResponse, err, '/api/word-transformation/' + this.userId());
+    });
+}
 
   forgeResonseObj(obj, res, path) {
     obj['path'] = path;
