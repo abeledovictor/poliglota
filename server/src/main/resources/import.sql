@@ -14,8 +14,10 @@ INSERT INTO user_authority (user_id, authority_id) VALUES (3, 1);
 INSERT INTO user_authority (user_id, authority_id) VALUES (3, 2);
 
 INSERT INTO wt_exercise (id, author_id) VALUES (1, 3);
-INSERT INTO wt_task (id, body, result, word, exercise_id, task_id) VALUES (1, 'user', 'Fan', 'Jin', 1, 1);
+INSERT INTO wt_task (body, result, word, word_at_index, exercise_id, task_id) VALUES ('user', 'Fan', 'Jin', 0, 1, 1);
 
 INSERT INTO wt_exercise (id, author_id) VALUES (2, 2);
-INSERT INTO wt_task (id, body, result, word, exercise_id, task_id) VALUES (2, 'user2', 'woo', 'te', 2, 2);
-INSERT INTO wt_task (id, body, result, word, exercise_id, task_id) VALUES (3, 'user3', 'ass', '2', 2, 3);
+INSERT INTO wt_task (body, result, word, word_at_index, exercise_id, task_id) VALUES ('please start ', 'running', 'run', 13, 2, 2);
+INSERT INTO wt_task (body, result, word, word_at_index, exercise_id, task_id) VALUES ('user3', 'ass', '2', 0, 2, 3);
+INSERT INTO wt_task (body, result, word, word_at_index, exercise_id, task_id) VALUES ('task4', 'ass', '2', 0, 2, 4);
+

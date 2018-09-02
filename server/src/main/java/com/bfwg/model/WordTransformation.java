@@ -14,9 +14,9 @@ import javax.persistence.Table;
 public class WordTransformation implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long task_id;
     
     @Column(name = "body")
     private String body;
@@ -27,12 +27,15 @@ public class WordTransformation implements Serializable {
     @Column(name = "word")
     private String word;
     
-    public void setId(Long id) {
-    	this.id = id;
+    @Column(name = "word_at_index")
+    private Integer wordAtIndex;
+    
+    public void setId(Long task_id) {
+    	this.task_id = task_id;
     }
     
     public Long getId() {
-    	return id;
+    	return task_id;
     }
     
     public void setBody(String body) {
@@ -59,4 +62,11 @@ public class WordTransformation implements Serializable {
     	return word;
     }
 	
+    public void setWordAtIndex(Integer wordAtIndex) {
+    	this.wordAtIndex = wordAtIndex;
+    }
+    
+    public Integer getWordAtIndex() {
+    	return wordAtIndex;
+    }
 }
