@@ -51,8 +51,8 @@ public class WordTransformationExercise implements Serializable {
 		    this.authorId = authorId;
 		  }
 	  
-	  public void setWordTransformations(List<WordTransformation> wordTransformations) {
-		    this.wordTransformations = wordTransformations;
+	  public void setWordTransformations(List<WordTransformation> wtTasks) {
+		    this.wordTransformations = wtTasks;
 		  }
 
 		  public Collection<?> getWordTransformations() {

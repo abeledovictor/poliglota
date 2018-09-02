@@ -21,4 +21,15 @@ apiText="/api/word-transformation/all"
 (apiClick)="makeRequest($event)"
 >
 </app-api-card>
+<app-api-card
+fxFlex
+title="Word transformation post"
+subTitle="Admin"
+imgUrl="assets/image/foo.png"
+content='This is a demo endpoint that requires admin authentication.'
+apiText="/api/word-transformation/new"
+[responseObj]="postRequest"
+(apiClick)="makeExercisePost($event)"
+>
+</app-api-card>
 </div>

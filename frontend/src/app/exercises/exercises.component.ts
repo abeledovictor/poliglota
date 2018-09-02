@@ -13,6 +13,7 @@ export class ExercisesComponent implements OnInit {
 
   fooResponse = {};
   userResponse = {};
+  postRequestResponse = {};
   constructor(
     private exService: ExService,
     private userService: UserService,
@@ -43,6 +44,15 @@ export class ExercisesComponent implements OnInit {
       this.forgeResonseObj(this.userResponse, err, '/api/word-transformation/' + this.userId());
     });
 }
+
+  makeExercisePost() {
+    this.exService.post(this.userId())
+    .subscribe(res => {
+      this.forgeResonseObj(this.postRequestResponse, res, '/api/word-transformation/new')
+    }, err => {
+      this.forgeResonseObj(this.postRequestResponse, err, '/api/word-transformation/new')
+    });
+  }
 
   forgeResonseObj(obj, res, path) {
     obj['path'] = path;

@@ -30,6 +30,17 @@ public class WordTransformation implements Serializable {
     @Column(name = "word_at_index")
     private Integer wordAtIndex;
     
+    @Column(name = "exercise_id")
+    private Long exercise_id;
+
+    public void setExercise_id(Long exercise_id) {
+    	this.exercise_id = exercise_id;
+    }
+    
+    public Long getExercise_id() {
+    	return exercise_id;
+    }
+    
     public void setId(Long task_id) {
     	this.task_id = task_id;
     }
