@@ -5,7 +5,7 @@ import java.util.List;
 public class WordTransformationExerciseRequest {
 	private Long id;
 	private Long author_id;
-	private List<WordTransformation> wt_task;
+	private List<WordTransformationTaskRequest> wt_task;
 
 	public Long getId() {
 		return id;
@@ -19,10 +19,10 @@ public class WordTransformationExerciseRequest {
 	public void setAuthor_id(Long author_id) {
 		this.author_id = author_id;
 	}
-	public List<WordTransformation> getTasks() {
+	public List<WordTransformationTaskRequest> getwt_task() {
 		return wt_task;
 	}
-	public void setTasks(List<WordTransformation> wt_task) {
+	public void setwt_taask(List<WordTransformationTaskRequest> wt_task) {
 		this.wt_task = wt_task;
 		
 	}

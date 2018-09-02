@@ -3,6 +3,8 @@ package com.bfwg.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,12 +31,11 @@ public class WordTransformationExercise implements Serializable {
 	  @Column(name = "author_id")
 	  private Long authorId;
 	  
-	  
 	  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	  @JoinTable(name = "wt_task",
 		      joinColumns = @JoinColumn(name = "exercise_id", referencedColumnName = "id"),
 		      inverseJoinColumns = @JoinColumn(name = "task_id", referencedColumnName = "task_id"))
-	  private List<WordTransformation> wordTransformations;
+	  private List<WordTransformation> wt_task;
 	  
 	  public Long getId() {
 		    return id;
@@ -51,11 +53,11 @@ public class WordTransformationExercise implements Serializable {
 		    this.authorId = authorId;
 		  }
 	  
-	  public void setWordTransformations(List<WordTransformation> wtTasks) {
-		    this.wordTransformations = wtTasks;
+	  public void setwt_task(List<WordTransformation> list) {
+		  this.wt_task = list;
 		  }
 
-		  public Collection<?> getWordTransformations() {
-		    return this.wordTransformations;
+		  public Collection<?> getwt_task() {
+		    return this.wt_task;
 		  }
 }

@@ -1,6 +1,7 @@
 package com.bfwg.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,19 @@ public class WordTransformationExerciseService {
 	  public WordTransformationExercise save(WordTransformationExerciseRequest wtRequest) {
 		WordTransformationExercise wordTransformation = new WordTransformationExercise();
 		wordTransformation.setAuthorId(wtRequest.getAuthor_id());
-		System.out.println(wtRequest.getTasks());
-		wordTransformation.setWordTransformations(wtRequest.getTasks());
+
+		List<WordTransformationTaskRequest> testP = wtRequest.getwt_task();
+
+		List<WordTransformation> thisIsIt = new ArrayList<WordTransformation>();
+		for(WordTransformationTaskRequest task : testP) {
+			  WordTransformation send = new WordTransformation();
+			  send.setBody(task.getBody());
+			  send.setResult(task.getResult());
+			  send.setWord(task.getWord());
+			  send.setWordAtIndex(task.getWord_at_index());
+			  thisIsIt.add(send);
+		}
+		wordTransformation.setwt_task(thisIsIt);
 
 	    this.wtRepository.save(wordTransformation);
 	   
