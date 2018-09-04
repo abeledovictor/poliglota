@@ -6,22 +6,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import com.bfwg.exception.ResourceConflictException;
-import com.bfwg.model.User;
-import com.bfwg.model.UserRequest;
 import com.bfwg.model.WordTransformationExercise;
 import com.bfwg.model.WordTransformationExerciseRequest;
-import com.bfwg.model.WordTransformationTaskRequest;
 import com.bfwg.service.WordTransformationExerciseService;
 
 @RestController
@@ -44,11 +36,6 @@ public class WordTransformationExerciseController {
 	  
 	  @RequestMapping(method = POST, value = "/word-transformation/new")
 	  public HttpStatus addWordTransformationExercise(@RequestBody WordTransformationExerciseRequest wtRequest) {
-		  List<WordTransformationTaskRequest> eee = wtRequest.getwt_task();
-		  for(WordTransformationTaskRequest a : eee) {
-			  System.out.println(a.getBody());
-		  }
-
 	    HttpStatus wtExercise = this.wtService.save(wtRequest);
 
 	    return wtExercise;

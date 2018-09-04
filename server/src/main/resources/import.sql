@@ -15,5 +15,13 @@ INSERT INTO user_authority (user_id, authority_id) VALUES (3, 2);
 
 
 
+INSERT INTO wt_exercise (id, author_id) VALUES (1,2)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'test loaded from import.sql', 'testResult', 'testWord', 0)
+INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,1)
 
 
+INSERT INTO wt_exercise (id, author_id) VALUES (2,3)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (2, 'second loaded from import.sql', 'myRes', 'word', 8)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (3, 'two items array from db', 'array', 'awesome', 2)
+INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (2,2)
+INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (2,3)
