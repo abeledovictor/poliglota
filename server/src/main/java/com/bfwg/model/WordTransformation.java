@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "wt_task")
 @Table(name = "wt_task")
 public class WordTransformation implements Serializable {
 
@@ -28,18 +28,8 @@ public class WordTransformation implements Serializable {
     private String word;
     
     @Column(name = "word_at_index")
-    private Integer wordAtIndex;
+    private Integer word_at_index;
     
-    @Column(name = "exercise_id")
-    private Long exercise_id;
-
-    public void setExercise_id(Long exercise_id) {
-    	this.exercise_id = exercise_id;
-    }
-    
-    public Long getExercise_id() {
-    	return exercise_id;
-    }
     
     public void setId(Long task_id) {
     	this.task_id = task_id;
@@ -73,11 +63,11 @@ public class WordTransformation implements Serializable {
     	return word;
     }
 	
-    public void setWordAtIndex(Integer wordAtIndex) {
-    	this.wordAtIndex = wordAtIndex;
+    public void setword_at_index(Integer word_at_index) {
+    	this.word_at_index = word_at_index;
     }
     
-    public Integer getWordAtIndex() {
-    	return wordAtIndex;
+    public Integer getword_at_index() {
+    	return word_at_index;
     }
 }

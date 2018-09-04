@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
+@Entity(name = "wt_exercise")
 @Table(name = "wt_exercise")
 public class WordTransformationExercise implements Serializable {
 	  @Id
@@ -31,11 +31,8 @@ public class WordTransformationExercise implements Serializable {
 	  @Column(name = "author_id")
 	  private Long authorId;
 	  
-	  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	  @JoinTable(name = "wt_task",
-		      joinColumns = @JoinColumn(name = "exercise_id", referencedColumnName = "id"),
-		      inverseJoinColumns = @JoinColumn(name = "task_id", referencedColumnName = "task_id"))
-	  private List<WordTransformation> wt_task;
+	  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	  private List<WordTransformation> wt_task = new ArrayList<>();
 	  
 	  public Long getId() {
 		    return id;
@@ -53,8 +50,15 @@ public class WordTransformationExercise implements Serializable {
 		    this.authorId = authorId;
 		  }
 	  
-	  public void setwt_task(List<WordTransformation> list) {
-		  this.wt_task = list;
+	  public void setwt_task(List<WordTransformationTaskRequest> list) {
+		  for(WordTransformationTaskRequest task : list) {
+			WordTransformation adding = new WordTransformation();
+			adding.setBody(task.getBody());
+			adding.setResult(task.getResult());
+			adding.setword_at_index(task.getword_at_index());
+			adding.setWord(task.getWord());
+			this.wt_task.add(adding);
+		  }
 		  }
 
 		  public Collection<?> getwt_task() {

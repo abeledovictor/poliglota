@@ -6,6 +6,7 @@ public class WordTransformationTaskRequest {
 	private Integer word_at_index;
 	private String result;
 	private Long exercise_id;
+	private Long task_id;
 
 	public String getBody() {
 		return body;
@@ -19,10 +20,10 @@ public class WordTransformationTaskRequest {
 	public void setWord(String word) {
 		this.word = word;
 	}
-	public Integer getWord_at_index() {
+	public Integer getword_at_index() {
 		return word_at_index;
 	}
-	public void setWord_at_index(Integer word_at_index) {
+	public void setword_at_index(Integer word_at_index) {
 		this.word_at_index = word_at_index;
 	}
 	public String getResult() {
@@ -36,6 +37,12 @@ public class WordTransformationTaskRequest {
 	}
 	public void setExercise_id(Long exercise_id) {
 		this.exercise_id = exercise_id;
+	}
+	public Long getTask_id() {
+		return task_id;
+	}
+	public void setTask_id(Long task_id) {
+		this.task_id = task_id;
 	}
 
 }

@@ -21,6 +21,7 @@ import com.bfwg.model.User;
 import com.bfwg.model.UserRequest;
 import com.bfwg.model.WordTransformationExercise;
 import com.bfwg.model.WordTransformationExerciseRequest;
+import com.bfwg.model.WordTransformationTaskRequest;
 import com.bfwg.service.WordTransformationExerciseService;
 
 @RestController
@@ -42,10 +43,14 @@ public class WordTransformationExerciseController {
 	  }
 	  
 	  @RequestMapping(method = POST, value = "/word-transformation/new")
-	  public ResponseEntity<?> addWordTransformationExercise(@RequestBody WordTransformationExerciseRequest wtRequest) {
+	  public HttpStatus addWordTransformationExercise(@RequestBody WordTransformationExerciseRequest wtRequest) {
+		  List<WordTransformationTaskRequest> eee = wtRequest.getwt_task();
+		  for(WordTransformationTaskRequest a : eee) {
+			  System.out.println(a.getBody());
+		  }
 
-	    WordTransformationExercise wtExercise = this.wtService.save(wtRequest);
+	    HttpStatus wtExercise = this.wtService.save(wtRequest);
 
-	    return new ResponseEntity<WordTransformationExercise>(wtExercise, HttpStatus.CREATED);
+	    return wtExercise;
 	  }
 }

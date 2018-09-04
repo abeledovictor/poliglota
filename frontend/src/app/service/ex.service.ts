@@ -28,7 +28,7 @@ export class ExService {
           "body": "mock body",
           "result": "mockResult",
           "word": "mockWord",
-          "wordAtIndex": 9,
+          "word_at_index": 9,
         }
       ]
     };

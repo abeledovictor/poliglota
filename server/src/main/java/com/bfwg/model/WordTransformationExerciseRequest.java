@@ -2,6 +2,7 @@ package com.bfwg.model;
 
 import java.util.List;
 
+
 public class WordTransformationExerciseRequest {
 	private Long id;
 	private Long author_id;
@@ -22,7 +23,7 @@ public class WordTransformationExerciseRequest {
 	public List<WordTransformationTaskRequest> getwt_task() {
 		return wt_task;
 	}
-	public void setwt_taask(List<WordTransformationTaskRequest> wt_task) {
+	public void setwt_task(List<WordTransformationTaskRequest> wt_task) {
 		this.wt_task = wt_task;
 		
 	}
