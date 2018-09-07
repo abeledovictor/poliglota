@@ -28,6 +28,7 @@ export const routes: Routes = [
     path: 'exercises',
     component: ExercisesComponent,
     pathMatch: 'full',
+    canActivate: [LoginGuard]
   },
   {
     path: 'login',

@@ -1,6 +1,6 @@
-<div class="content" fxLayout="row" fxLayoutAlign="center none">
+<div class="home">
   <app-api-card
-    fxFlex
+    class="home__card"
     title='"Foo"'
     subTitle="Public"
     imgUrl="assets/image/foo.png"
@@ -12,7 +12,7 @@
   </app-api-card>
 
   <app-api-card
-     fxFlex
+     class="home__card"
      title='"Who am I"'
      subTitle="Authorized role: USER"
      imgUrl="assets/image/user.png"
@@ -24,8 +24,7 @@
   </app-api-card>
 
   <app-api-card
-     class="last"
-     fxFlex
+     class="home__card"
      title='"All users"'
      subTitle="Authorized role: ADMIN"
      imgUrl="assets/image/admin.png"
@@ -35,5 +34,38 @@
      (apiClick)="makeRequest($event)"
   >
   </app-api-card>
+
+  <app-api-card
+  class="home__card"
+  title="Word transformation"
+  subTitle="User"
+  imgUrl="assets/image/user.png"
+  content='This is a demo endpoint that requires user authentication.'
+  apiText="/api/word-transformation/{authorId}"
+  [responseObj]="userResponse"
+  (apiClick)="makeByIdRequest($event)"
+  >
+  </app-api-card>
+  <app-api-card
+  class="home__card"
+  title="Word transformation"
+  subTitle="Admin"
+  imgUrl="assets/image/foo.png"
+  content='This is a demo endpoint that requires admin authentication.'
+  apiText="/api/word-transformation/all"
+  [responseObj]="getAllResponse"
+  (apiClick)="makegetAllRequest($event)"
+  >
+  </app-api-card>
+  <app-api-card
+  class="home__card"
+  title="Word transformation post"
+  subTitle="Admin"
+  imgUrl="assets/image/foo.png"
+  content='This is a demo endpoint that requires admin authentication.'
+  apiText="/api/word-transformation/new"
+  [responseObj]="postRequest"
+  (apiClick)="makeExercisePost($event)"
+  >
+  </app-api-card>
 </div>
-<app-github></app-github>

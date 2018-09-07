@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   FooService,
   ConfigService,
-  UserService
+  UserService,
+  ExService,
 } from '../service';
 
 @Component({
@@ -15,14 +16,50 @@ export class HomeComponent implements OnInit {
   fooResponse = {};
   whoamIResponse = {};
   allUserResponse = {};
+  getAllResponse = {};
+  userResponse = {};
+  postRequestResponse = {};
   constructor(
     private config: ConfigService,
     private fooService: FooService,
-    private userService: UserService
+    private userService: UserService,
+    private exService: ExService,
   ) { }
 
   ngOnInit() {
   }
+
+  userId() {
+    const user = this.userService.currentUser;
+    return user.id + '';
+  }
+
+  makeByIdRequest(path) {
+    this.exService.getByUserId(this.userId())
+    .subscribe(res => {
+      this.forgeResonseObj(this.userResponse, res, '/api/word-transformation/' + this.userId());
+    }, err => {
+      this.forgeResonseObj(this.userResponse, err, '/api/word-transformation/' + this.userId());
+    });
+}
+
+  makeExercisePost() {
+    this.exService.post(this.userId())
+    .subscribe(res => {
+      this.forgeResonseObj(this.postRequestResponse, res, '/api/word-transformation/new')
+    }, err => {
+      this.forgeResonseObj(this.postRequestResponse, err, '/api/word-transformation/new')
+    });
+  }
+
+  makegetAllRequest(path) {
+    this.exService.getAll()
+    .subscribe(res => {
+      this.forgeResonseObj(this.getAllResponse, res, path);
+    }, err => {
+      this.forgeResonseObj(this.getAllResponse, err, path);
+    });
+}
 
   makeRequest(path) {
     if (path === this.config.foo_url) {
