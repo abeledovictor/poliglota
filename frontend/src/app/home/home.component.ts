@@ -46,9 +46,9 @@ export class HomeComponent implements OnInit {
   makeExercisePost() {
     this.exService.post(this.userId())
     .subscribe(res => {
-      this.forgeResonseObj(this.postRequestResponse, res, '/api/word-transformation/new')
+      this.forgeResonseObj(this.postRequestResponse, res, '/api/word-transformation/new', 'POST')
     }, err => {
-      this.forgeResonseObj(this.postRequestResponse, err, '/api/word-transformation/new')
+      this.forgeResonseObj(this.postRequestResponse, err, '/api/word-transformation/new', "POST")
     });
   }
 
@@ -86,9 +86,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  forgeResonseObj(obj, res, path) {
+
+  forgeResonseObj(obj, res, path, method = 'GET') {
     obj['path'] = path;
-    obj['method'] = 'GET';
+    obj['method'] = method;
     if (res.ok === false) {
       // err
       obj['status'] = res.status;
