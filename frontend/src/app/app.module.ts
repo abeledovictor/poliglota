@@ -15,6 +15,7 @@ import {
   MatIconRegistry,
   MatProgressSpinnerModule
 } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
@@ -81,6 +82,7 @@ export function initUserFactory(userService: UserService) {
     MatMenuModule,
     MatTooltipModule,
     MatButtonModule,
+    MatExpansionModule,
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
