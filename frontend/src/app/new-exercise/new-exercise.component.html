@@ -1,11 +1,43 @@
 <div>
-    <!-- <section>
+    <section>
         <h2>Create</h2>
-        <button mat-raised-button (click)="openWordTransformation()">Word transformation</button>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Word Transformation
+            </mat-panel-title>
+            <mat-panel-description>
+              Type a sentence, a word to transform, and the correct transformation
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Sentence"
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="2"
+              cdkAutosizeMaxRows="10"
+            ></textarea>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input matInput placeholder="Word">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Answer">
+          </mat-form-field>
+
+          <mat-action-row>
+            <button mat-button>Add new</button>
+          </mat-action-row>
+        </mat-expansion-panel>
     </section>
       <section *ngIf="submitted">
         <h3>Submit status</h3>
         <p>{{status}}</p>
-      </section> -->
+      </section>
 
 </div>
