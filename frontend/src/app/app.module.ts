@@ -24,6 +24,7 @@ import { LoginComponent } from './login';
 import { LoginGuard, GuestGuard, AdminGuard } from './guard';
 import { NotFoundComponent } from './not-found';
 import { AccountMenuComponent } from './component/header/account-menu/account-menu.component';
+import { ExercisesMenuComponent } from './component/header/exercises-menu/exercises-menu.component';
 import {
   HeaderComponent,
   ApiCardComponent,
@@ -44,6 +45,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { NewExerciseComponent } from './new-exercise/new-exercise.component';
 
 export function initUserFactory(userService: UserService) {
     return () => userService.initUser();
@@ -60,11 +62,13 @@ export function initUserFactory(userService: UserService) {
     LoginComponent,
     NotFoundComponent,
     AccountMenuComponent,
+    ExercisesMenuComponent,
     ChangePasswordComponent,
     ForbiddenComponent,
     AdminComponent,
     SignupComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    NewExerciseComponent
   ],
   imports: [
     BrowserAnimationsModule,

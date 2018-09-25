@@ -11,6 +11,7 @@ import { ChangePasswordComponent } from './change-password';
 import { ForbiddenComponent } from './forbidden';
 import { SignupComponent } from './signup';
 import { ExercisesComponent } from './exercises';
+import { NewExerciseComponent } from './new-exercise';
  
 export const routes: Routes = [
   {
@@ -29,6 +30,12 @@ export const routes: Routes = [
     component: ExercisesComponent,
     pathMatch: 'full',
     canActivate: [LoginGuard]
+  },
+  {
+    path: 'exercises/new',
+    component: NewExerciseComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'login',
