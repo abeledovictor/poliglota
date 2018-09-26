@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewExampleDialog } from 'app/component/dialog';
 import {
   ExService,
   UserService,
 } from '../service';
+
 
 @Component({
   selector: 'new-exercise',
@@ -12,9 +15,12 @@ import {
 export class NewExerciseComponent implements OnInit {
 
   wordTransformations = [];
+  optionPicker = [];
+  optionPopup = {text: '', options: []};
   constructor(
     private exService: ExService,
     private userService: UserService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -36,6 +42,22 @@ export class NewExerciseComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  optionPickerSelectHandler(ev) {
+    const { selectionStart, selectionEnd, value: string } = ev.target;
+    const selectedWord = string.slice(selectionStart, selectionEnd);
+    this.optionPopup.text = string;
+    this.optionPopup.options.push({ selectionStart,selectionEnd, choices:[] });
+
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {name: 'asd', animal: 'sdfsdfs'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   wordTransformationPost() {

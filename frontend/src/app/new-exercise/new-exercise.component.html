@@ -49,6 +49,35 @@
           </mat-action-row>
         </mat-expansion-panel>
       </form>
+
+      <form>
+        <h2>Create</h2>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Option Picker
+            </mat-panel-title>
+            <mat-panel-description>
+              Type a sentence, double click to add option dropdown
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Text"
+              [value]="optionPicker.text"
+              (change)="optionPicker.text = $event.target.value"
+              (dblclick)="optionPickerSelectHandler($event)"
+            ></textarea>
+          </mat-form-field>
+
+          <mat-action-row>
+            <button type="submit" mat-button>Submit</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </form>
+
       <section *ngIf="submitted">
         <h3>Submit status</h3>
         <p>{{status}}</p>

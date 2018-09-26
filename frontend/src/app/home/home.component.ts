@@ -44,7 +44,14 @@ export class HomeComponent implements OnInit {
 }
 
   makeExercisePost() {
-    this.exService.post(this.userId())
+    this.exService.post(
+      this.userId(),
+      [{
+        sentence: "holasdasd sfds sdf ",
+        result: "hosdlf",
+        word: "test",
+        }],
+    )
     .subscribe(res => {
       this.forgeResonseObj(this.postRequestResponse, res, '/api/word-transformation/new', 'POST')
     }, err => {
