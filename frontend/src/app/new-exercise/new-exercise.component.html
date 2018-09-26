@@ -1,40 +1,83 @@
 <div>
-    <section>
+    <form (ngSubmit)="wordTransformationPost()">
         <h2>Create</h2>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Word Transformation
+              Word transformation
             </mat-panel-title>
             <mat-panel-description>
-              Type a sentence, a word to transform, and the correct transformation
+              Type a sentence, a word to transform and an answer
             </mat-panel-description>
           </mat-expansion-panel-header>
-      
+          <div *ngFor="let element of wordTransformations; let i = index">
           <mat-form-field>
             <textarea
               matInput
               placeholder="Sentence"
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="2"
-              cdkAutosizeMaxRows="10"
+              [value]="element.sentence"
+              (change)="wordTransformations[i].sentence = $event.target.value"
             ></textarea>
           </mat-form-field>
       
           <mat-form-field>
-            <input matInput placeholder="Word">
+            <input
+              matInput
+              placeholder="Word"
+              [value]="element.word"
+              (change)="wordTransformations[i].word = $event.target.value"
+            >
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Answer">
+            <input
+              matInput
+              placeholder="Answer"
+              [value]="element.answer"
+              (change)="wordTransformations[i].answer = $event.target.value"
+            >
+          </mat-form-field>
+
+          <button mat-icon-button (click)="onAddClick()" type="button" *ngIf="isLast(i)">
+            <mat-icon>add</mat-icon>
+          </button>
+
+          </div>
+
+          <mat-action-row>
+            <button type="submit" mat-button>Submit</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </form>
+
+      <form>
+        <h2>Create</h2>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Option Picker
+            </mat-panel-title>
+            <mat-panel-description>
+              Type a sentence, double click to add option dropdown
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Text"
+              [value]="optionPicker.text"
+              (change)="optionPicker.text = $event.target.value"
+              (dblclick)="optionPickerSelectHandler($event)"
+            ></textarea>
           </mat-form-field>
 
           <mat-action-row>
-            <button mat-button>Add new</button>
+            <button type="submit" mat-button>Submit</button>
           </mat-action-row>
         </mat-expansion-panel>
-    </section>
+      </form>
+
       <section *ngIf="submitted">
         <h3>Submit status</h3>
         <p>{{status}}</p>

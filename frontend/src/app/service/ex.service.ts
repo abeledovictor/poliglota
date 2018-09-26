@@ -19,20 +19,18 @@ export class ExService {
     return this.apiService.get(this.config.ex_by_author_url + '/' + authorId);
   }
 
-  post(creatorId) {
+  post(creatorId, exercise) {
     console.log(creatorId)
-    let mockNewEx = {
+    let data = {
       "author_id": Number(creatorId),
-      "wt_task": [
-        {
-          "body": "mock body",
-          "result": "mockResult",
-          "word": "mockWord",
-          "word_at_index": 9,
-        }
-      ]
+      "wt_task": exercise.map(row => ({
+        body: row.sentence.replace(/\*(?!\/)/, ''),// finds an * only if it isn't followed by a /. You can escape *'s with / example '*/'
+        result: row.answer,
+        word: row.word,
+        word_at_index: row.sentence.search(/\*(?!\/)/),
+      })),
     };
-    return this.apiService.post(this.config.post_new_ex, mockNewEx)
+    return this.apiService.post(this.config.post_new_ex, data)
   }
 
 }

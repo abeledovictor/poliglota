@@ -13,7 +13,8 @@ import {
   MatCardModule,
   MatInputModule,
   MatIconRegistry,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +31,8 @@ import {
   HeaderComponent,
   ApiCardComponent,
   FooterComponent,
-  GithubComponent
+  GithubComponent,
+  DialogOverviewExampleDialog
 } from './component';
 
 import {
@@ -60,6 +62,7 @@ export function initUserFactory(userService: UserService) {
     ApiCardComponent,
     HomeComponent,
     GithubComponent,
+    DialogOverviewExampleDialog,
     LoginComponent,
     NotFoundComponent,
     AccountMenuComponent,
@@ -71,6 +74,7 @@ export function initUserFactory(userService: UserService) {
     ExercisesComponent,
     NewExerciseComponent
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -84,9 +88,11 @@ export function initUserFactory(userService: UserService) {
     MatButtonModule,
     MatExpansionModule,
     MatIconModule,
+    MatDialogModule,
     MatInputModule,
     MatToolbarModule,
     MatCardModule,
+
     MatProgressSpinnerModule,
     FlexLayoutModule
   ],

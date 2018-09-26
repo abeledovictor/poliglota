@@ -1,23 +1,71 @@
-import { Component, NgZone, ViewChild } from '@angular/core';
-import {CdkTextareaAutosize} from '@angular/cdk/text-field';
-import {take} from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewExampleDialog } from 'app/component/dialog';
+import {
+  ExService,
+  UserService,
+} from '../service';
+
 
 @Component({
   selector: 'new-exercise',
   templateUrl: './new-exercise.component.html',
   styleUrls: ['./new-exercise.component.scss']
 })
-export class NewExerciseComponent {
+export class NewExerciseComponent implements OnInit {
 
+  wordTransformations = [];
+  optionPicker = [];
+  optionPopup = {text: '', options: []};
   constructor(
-    private ngZone: NgZone,
+    private exService: ExService,
+    private userService: UserService,
+    public dialog: MatDialog,
   ) { }
 
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
+  ngOnInit() {
+    this.wordTransformations.push({sentence: '', word: '', answer: ''});
+  }
 
-  triggerResize() {
-    // Wait for changes to be applied, then trigger textarea resize.
-    this.ngZone.onStable.pipe(take(1))
-        .subscribe(() => this.autosize.resizeToFitContent(true));
+  userId() {
+    const user = this.userService.currentUser;
+    return user.id + '';
+  }
+
+  onAddClick() {
+    this.wordTransformations.push({sentence: '', word: '', answer: ''});
+  }
+
+  isLast(index) {
+    if(index === this.wordTransformations.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  optionPickerSelectHandler(ev) {
+    const { selectionStart, selectionEnd, value: string } = ev.target;
+    const selectedWord = string.slice(selectionStart, selectionEnd);
+    this.optionPopup.text = string;
+    this.optionPopup.options.push({ selectionStart,selectionEnd, choices:[] });
+
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px',
+      data: {name: 'asd', animal: 'sdfsdfs'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  wordTransformationPost() {
+    this.exService.post(this.userId(), this.wordTransformations)
+    .subscribe(res => {
+      console.log(res)
+    }, err => {
+      console.log(err)
+    });
   }
 }
