@@ -51,8 +51,9 @@ export class NewExerciseComponent implements OnInit {
     this.optionPopup.options.push({ selectionStart,selectionEnd, choices:[] });
 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: 'asd', animal: 'sdfsdfs'}
+      width: '400px',
+      height: '400px',
+      // data: {name: this.name, animal: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {

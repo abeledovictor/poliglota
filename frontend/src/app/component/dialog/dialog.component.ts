@@ -7,7 +7,7 @@ export interface DialogData {
   }
 
 @Component({
-    selector: 'dialog',
+    selector: 'dialog-component',
     templateUrl: 'dialog.component.html',
   })
   export class DialogOverviewExampleDialog {

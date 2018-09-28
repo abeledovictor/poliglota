@@ -66,8 +66,8 @@
             <textarea
               matInput
               placeholder="Text"
-              [value]="optionPicker.text"
-              (change)="optionPicker.text = $event.target.value"
+              [value]="optionPopup.text"
+              (change)="optionPopup.text = $event.target.value"
               (dblclick)="optionPickerSelectHandler($event)"
             ></textarea>
           </mat-form-field>
