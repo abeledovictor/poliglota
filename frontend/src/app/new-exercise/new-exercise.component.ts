@@ -48,16 +48,17 @@ export class NewExerciseComponent implements OnInit {
     const { selectionStart, selectionEnd, value: string } = ev.target;
     const selectedWord = string.slice(selectionStart, selectionEnd);
     this.optionPopup.text = string;
-    this.optionPopup.options.push({ selectionStart,selectionEnd, choices:[] });
+    // this.optionPopup.options.push({ selectionStart,selectionEnd, choices:[] });
 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '400px',
       height: '400px',
-      // data: {name: this.name, animal: this.animal}
+      data: { selectedWord, selectionStart, selectionEnd, optionPopup: this.optionPopup }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed', result);
+      this.optionPopup.options.push(result)
     });
   }
 

@@ -11,7 +11,7 @@ export interface DialogData {
     templateUrl: 'dialog.component.html',
   })
   export class DialogOverviewExampleDialog {
-  
+    choices = [''];
     constructor(
       public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
