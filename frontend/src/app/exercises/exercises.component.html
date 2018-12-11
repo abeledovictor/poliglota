@@ -1,0 +1,8 @@
+<div class="Word-transformation">
+    <h1>Word transformation exercises</h1>
+    <div *ngFor="let items of response; let i = index">
+        <div class="exerciseModel">
+            <app-exercise-model [i]="i" [item]="items"></app-exercise-model>
+        </div>
+    </div>
+</div>

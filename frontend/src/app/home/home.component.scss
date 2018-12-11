@@ -1,0 +1,12 @@
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__card {
+    flex: 1 0 30%;
+    margin-bottom: 20px;
+    min-width: 350px;
+  }
+}
+

@@ -1,0 +1,11 @@
+<p><strong>Sentence {{ i + 1}} - </strong> {{item.body}} | <strong>Hint: </strong> {{item.word}}</p>
+<mat-form-field appearance="legacy">
+    <input #content matInput placeholder="Answer">
+    <mat-icon id="good{{i+1}}" class="material-icons customGreen done" matSuffix customGreen>done_all</mat-icon>
+    <mat-icon id="wrong{{i+1}}" class="material-icons customRed done" matSuffix customRed>clear</mat-icon>
+</mat-form-field>
+<mat-card-actions>
+    <div>
+        <button mat-raised-button color="primary" (click)="saveValue(content.value,item.result)"> Validate </button>
+    </div>
+</mat-card-actions>
