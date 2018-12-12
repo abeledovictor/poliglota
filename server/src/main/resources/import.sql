@@ -21,7 +21,7 @@ INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'As 
 INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (2, 'We were better prepared tothe heat a year ago.', 'withstand', 'Soportar', 26)
 INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (3, 'The final was even but only the best.', 'won', 'Ganar', 36)
 INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (4, 'I do not usually like tothe guitar but when I do it my fingers hurt.', 'play', 'Jugar', 24)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (5, 'Next month Imthe tickets to go to the recital.', 'going to buy', 'Comprar', 23)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (5, 'Next month Imthe tickets to go to the recital.', 'going to buy', 'Comprar', 13)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,1)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,2)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,3)
