@@ -1,9 +1,19 @@
 <p><strong>Sentence {{ i + 1}} - </strong> {{item.body}} | <strong>Hint: </strong> {{item.word}}</p>
-<mat-form-field appearance="legacy">
-    <input #content matInput placeholder="Answer">
+<div>
+    <p id="correct-answer{{i+1}}" class="good-answer"><strong>The correct word was: </strong> {{item.result}}</p>
     <mat-icon id="good{{i+1}}" class="material-icons customGreen done" matSuffix customGreen>done_all</mat-icon>
+    <p id="wrong-answer{{i+1}}" class="wrong-answer"><strong>Wrong Answer!</strong></p>
     <mat-icon id="wrong{{i+1}}" class="material-icons customRed done" matSuffix customRed>clear</mat-icon>
-</mat-form-field>
+</div>
+<form appearance="legacy">
+    <div class="group">
+        <input #content type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Answer</label>
+    </div>
+</form>
+
 <mat-card-actions>
     <div>
         <button mat-raised-button color="primary" (click)="saveValue(content.value,item.result)"> Validate </button>

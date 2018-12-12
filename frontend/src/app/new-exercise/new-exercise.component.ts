@@ -33,7 +33,7 @@ export class NewExerciseComponent implements OnInit {
   }
 
   onAddClick() {
-    this.wordTransformations.push({sentence: '', word: '', answer: ''});
+      this.wordTransformations.push({sentence: '', word: '', answer: ''});
   }
 
   isLast(index) {
@@ -63,11 +63,31 @@ export class NewExerciseComponent implements OnInit {
   }
 
   wordTransformationPost() {
-    this.exService.post(this.userId(), this.wordTransformations)
-    .subscribe(res => {
-      console.log(res)
-    }, err => {
-      console.log(err)
-    });
+
+    console.log(this.wordTransformations);
+
+for (let count = 0 ; count < this.wordTransformations.length ; count++){
+  if (this.wordTransformations[count].sentence === '' || this.wordTransformations[count].answer === '') {
+    console.log(`Error: Word Transformation not valid!`);
+    console.log(this.wordTransformations[count]);
+    var deleteword = this.wordTransformations.splice(count, 1);
+    console.log(deleteword);
+  }else{
+    let temp:string = this.wordTransformations[count].sentence;
+    if (temp.includes('*')) {
+      console.log('Valid word transformation!');
+    }else {
+      console.log(`Error: No content *.`);
+      deleteword = this.wordTransformations.splice(count, 1);
+    }
+  }
+}
+console.log(this.wordTransformations);
+      this.exService.post(this.userId(), this.wordTransformations)
+      .subscribe(res => {
+        console.log(res)
+      }, err => {
+        console.log(err)
+      });
   }
 }

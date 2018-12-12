@@ -20,7 +20,7 @@ export class ExService {
     return this.apiService.get(this.config.ex_url).pipe(
       map((data: any) => {
         console.log(data);
-        return data.map(({wt_task}) => wt_task)
+        return data.map(({wt_task}) => wt_task[0])
       })
     );
   }

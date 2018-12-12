@@ -2,57 +2,42 @@
     <form (ngSubmit)="wordTransformationPost()">
         <h2>Create</h2>
         <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Word transformation
-            </mat-panel-title>
-            <mat-panel-description>
-              Type a sentence, a word to transform and an answer. Usar * para indicar donde debe ir la palabra a transformar
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div *ngFor="let element of wordTransformations; let i = index">
-          <mat-form-field>
-            <textarea
-              matInput
-              placeholder="Sentence"
-              [value]="element.sentence"
-              (change)="wordTransformations[i].sentence = $event.target.value"
-            ></textarea>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <input
-              matInput
-              placeholder="Word"
-              [value]="element.word"
-              (change)="wordTransformations[i].word = $event.target.value"
-            >
-          </mat-form-field>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Word transformation
+                </mat-panel-title>
+                <mat-panel-description>
+                    Type a sentence, a word to transform and an answer. Usar * para indicar donde debe ir la palabra a transformar
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div *ngFor="let element of wordTransformations; let i = index">
+                <mat-form-field>
+                    <textarea matInput placeholder="Sentenceee" [value]="element.sentence" type="text" required (change)="wordTransformations[i].sentence = $event.target.value"></textarea>
+                </mat-form-field>
 
-          <mat-form-field>
-            <input
-              matInput
-              placeholder="Answer"
-              [value]="element.answer"
-              (change)="wordTransformations[i].answer = $event.target.value"
-            >
-          </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Word" [value]="element.word" type="text" required (change)="wordTransformations[i].word = $event.target.value">
+                </mat-form-field>
 
-          <button mat-icon-button (click)="onAddClick()" type="button" *ngIf="isLast(i)">
+                <mat-form-field>
+                    <input matInput placeholder="Answer" [value]="element.answer" type="text" required (change)="wordTransformations[i].answer = $event.target.value">
+                </mat-form-field>
+
+                <button mat-icon-button (click)="onAddClick()" type="button" *ngIf="isLast(i)">
             <mat-icon>add</mat-icon>
           </button>
 
-          </div>
+            </div>
 
-          <mat-action-row>
-            <button type="submit" mat-button>Submit</button>
-          </mat-action-row>
+            <mat-action-row>
+                <button type="submit" mat-button>Submit</button>
+            </mat-action-row>
         </mat-expansion-panel>
-      </form>
+    </form>
 
-      <section *ngIf="submitted">
+    <section *ngIf="submitted">
         <h3>Submit status</h3>
         <p>{{status}}</p>
-      </section>
+    </section>
 
 </div>

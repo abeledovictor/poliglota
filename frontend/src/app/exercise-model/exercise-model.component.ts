@@ -15,14 +15,15 @@ export class ExerciseModelComponent implements OnInit {
 
   saveValue(valueUser, value) {
     if (valueUser === value) {
-      console.log('Correct!');
-      document.getElementById(`good${this.i + 1}`).style.display = 'inline';
+      document.getElementById(`good${this.i + 1}`).style.display = 'inline'
+      document.getElementById(`correct-answer${this.i + 1}`).style.display = 'inline'
       document.getElementById(`wrong${this.i + 1}`).style.display = 'none';
-      console.log(`good${this.i + 1}`);
+      document.getElementById(`wrong-answer${this.i + 1}`).style.display = 'none'
+      console.log(`Good-${this.i + 1}!`);
     }else {
-      console.log('Wrong!');
-      console.log(`good${this.i + 1}`);
+      console.log(`Wrong-${this.i + 1}!`);
       document.getElementById(`good${this.i + 1}`).style.display = 'none';
+      document.getElementById(`wrong-answer${this.i + 1}`).style.display = 'inline'
       document.getElementById(`wrong${this.i + 1}`).style.display = 'inline';
     }
   }
