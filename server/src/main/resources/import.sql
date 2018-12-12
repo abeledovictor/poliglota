@@ -7,26 +7,26 @@ INSERT INTO user (id, username, password, firstname, lastname) VALUES (3, 'victo
 INSERT INTO authority (id, name) VALUES (1, 'ROLE_USER');
 INSERT INTO authority (id, name) VALUES (2, 'ROLE_ADMIN');
 
-INSERT INTO user_authority (user_id, authority_id) VALUES (1, 1); // Lucio tiene autorizacion solo de User
-INSERT INTO user_authority (user_id, authority_id) VALUES (2, 1); // Gonzalo y Victor tienen autorizacion de User y Admin pero predomina la de Admin
+-- Lucio tiene autorizacion solo de User
+-- Gonzalo y Victor tienen autorizacion de User y Admin pero predomina la de Admin
+INSERT INTO user_authority (user_id, authority_id) VALUES (1, 1);
+INSERT INTO user_authority (user_id, authority_id) VALUES (2, 1); 
 INSERT INTO user_authority (user_id, authority_id) VALUES (2, 2);
 INSERT INTO user_authority (user_id, authority_id) VALUES (3, 1);
 INSERT INTO user_authority (user_id, authority_id) VALUES (3, 2);
 
-
-INSERT INTO wt_exercise (id, author_id) VALUES (1,1)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'As a child, I used to borrow my younger brother'++'s toys.', 'Tomar prestado', 'borrow', 21)
+-- Se crea task 1 y se asocian 5 ejercicios a realizar
+INSERT INTO wt_exercise (id, author_id) VALUES (1,2)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'As a child, I used tomy younger brothers toys.', 'borrow', 'Tomar prestado', 21)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (2, 'We were better prepared tothe heat a year ago.', 'withstand', 'Soportar', 26)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (3, 'The final was even but only the best.', 'won', 'Ganar', 36)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (4, 'I do not usually like tothe guitar but when I do it my fingers hurt.', 'play', 'pJugarlay', 24)
+INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (5, 'Next month Imthe tickets to go to the recital.', 'going to buy', 'Comprar', 23)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,1)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'We were better prepared to withstand the heat a year ago.', 'Soportar', 'withstand', 26)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,2)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'The final was even but only the best won.', 'Ganar', 'won', 36)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,3)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'I do not usually like to play the guitar but when I do it my fingers hurt.', 'Jugar', 'play', 24)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,4)
-INSERT INTO wt_task (task_id, body, result, word, word_at_index) VALUES (1, 'Next month I'++'m going to buy the tickets to go to the recital.', 'Comprar', 'going to buy', 23)
 INSERT INTO wt_exercise_wt_task (wt_exercise_id, wt_task_task_id) VALUES (1,5)
-
-
 
 /*	Test
 INSERT INTO wt_exercise (id, author_id) VALUES (1,2)
